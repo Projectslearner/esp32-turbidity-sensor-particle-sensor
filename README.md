@@ -1,48 +1,48 @@
-# ESP32 Tilt Sensor Project
+# ESP32 Turbidity Sensor Particle Sensor Project
 
 ### Project Overview
-The ESP32 Tilt Sensor project demonstrates how to interface a tilt sensor with an ESP32 microcontroller to detect changes in orientation or tilt. This project is useful in applications where detecting movement or changes in position is critical, such as in security systems, robotics, or game controllers.
+The ESP32 Turbidity Sensor Particle Sensor project demonstrates how to interface a turbidity sensor with an ESP32 microcontroller to measure the turbidity or cloudiness of water. This project is useful in water quality monitoring applications, where it is important to detect the presence of suspended particles in the water.
 
 ### Components Needed
-- **ESP32 Microcontroller**: Used to read the tilt sensor input.
-- **Tilt Sensor**: A simple switch that changes state when tilted.
-- **Jumper Wires**: Connect the tilt sensor to the ESP32.
+- **ESP32 Microcontroller**: Used to read the turbidity sensor input.
+- **Turbidity Sensor**: Measures the cloudiness of water by detecting the amount of light scattered by suspended particles.
+- **Jumper Wires**: Connect the turbidity sensor to the ESP32.
 - **Breadboard**: Optional, for organizing circuit connections if needed.
 
 ### Circuit Setup
-1. **Connecting the Tilt Sensor to ESP32:**
-   - **Tilt Sensor Pin**: Connect one side of the tilt sensor to a GPIO pin on the ESP32 (e.g., GPIO 5).
-   - **Power and Ground**: Connect the other side of the tilt sensor to GND. Use the internal pull-up resistor of the ESP32 to pull the pin high.
+1. **Connecting the Turbidity Sensor to ESP32:**
+   - **Turbidity Sensor Pin**: Connect the output pin of the turbidity sensor to an analog input pin on the ESP32 (e.g., GPIO 34).
 
 ### Instructions
 1. **Setup:**
    - Initialize Serial communication using `Serial.begin(9600)` for debugging purposes.
-   - Set the tilt sensor pin as an input with an internal pull-up resistor using `pinMode(tiltSensorPin, INPUT_PULLUP)`.
+   - No need to set pinMode for analog pins, as they are automatically configured.
 
 2. **Operation:**
-   - **Reading Tilt State:**
-     - Use `digitalRead(tiltSensorPin)` to read the state of the tilt sensor.
-     - Print the tilt state to the Serial Monitor.
-   - **Detecting Tilt:**
-     - Print "Tilt detected!" if the tilt sensor state is LOW (indicating it is tilted).
-     - Print "No tilt detected." if the tilt sensor state is HIGH (indicating it is not tilted).
+   - **Reading Turbidity Value:**
+     - Use `analogRead(turbiditySensorPin)` to read the analog value from the turbidity sensor.
+     - Print the turbidity value to the Serial Monitor.
+   - **Detecting Water Quality:**
+     - Compare the turbidity value against a defined threshold (`turbidityThreshold`).
+     - Print "Water is dirty!" if the turbidity value is above the threshold.
+     - Print "Water is clean." if the turbidity value is below the threshold.
 
 3. **Output:**
-   - Continuously display the tilt state.
-   - Indicate tilt detection based on the sensor reading.
+   - Continuously display the turbidity value.
+   - Indicate water quality based on the threshold.
 
 4. **Considerations:**
-   - **Debouncing:** Implement software debouncing if the sensor produces erratic readings.
-   - **Mounting:** Ensure the tilt sensor is securely mounted to detect orientation changes accurately.
+   - **Threshold Adjustment:** Adjust the `turbidityThreshold` value based on your specific environment and sensor calibration.
+   - **Sensor Calibration:** Calibrate the sensor to ensure accurate turbidity measurements.
    - **Environment:** Test the sensor in the intended environment to ensure reliable operation.
 
 ### Applications
-- **Security Systems:** Detect unauthorized movement or tampering.
-- **Robotics:** Monitor the orientation of robotic components.
-- **Game Controllers:** Create tilt-sensitive inputs for interactive gaming experiences.
+- **Water Quality Monitoring:** Detect turbidity in water for environmental and industrial applications.
+- **Aquarium Maintenance:** Monitor water clarity in aquariums.
+- **Agricultural Systems:** Ensure clean water for irrigation and livestock.
 
 ### Useful Links
-🌐 [ProjectsLearner - ESP32 Tilt Sensor](https://projectslearner.com/learn/esp32-tilt-sensor)  
+🌐 [ProjectsLearner - ESP32 Turbidity Sensor Particle Sensor](https://projectslearner.com/learn/esp32-turbidity-sensor-particle-sensor)  
 📧 [Email](mailto:projectslearner@gmail.com)  
 📸 [Instagram](https://www.instagram.com/projectslearner/)  
 📘 [Facebook](https://www.facebook.com/projectslearner)  
